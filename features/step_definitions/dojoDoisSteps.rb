@@ -9,6 +9,7 @@ Dado("que estou logado no site SuiteCRM") do
   end
   
   Quando("insiro os valores {string} {string} {string} para criar task") do |subject, status, priority|
+    
     @name = subject
     @name.realizaCadastro(@name,status,priority)
     @ct.botaoSave.click
