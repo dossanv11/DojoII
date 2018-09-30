@@ -1,44 +1,50 @@
 Dado("que estou logado no site SuiteCRM") do
     @ct = CreateTasks.new
     @login = Login.new
-    @verCri = VerificaCriacao.new
-	
+    @et = EditTask.new
+    @dt = DeleteTask.new
+
 	  @login.load
     @login.realizaLogin("will","will")
     @login.botaoLogin.click
+    click_link('grouptab_3')
+    click_link('moduleTab_6_Tasks')
   end
   
   Quando("insiro os valores {string} {string} {string} para criar task") do |subject, status, priority|
-    
+    sleep 5
+    click_link('Create Task')
     @name = subject
-    @name.realizaCadastro(@name,status,priority)
+    @ct.realizaCadastro(@name, status, priority)
+    sleep 5
     @ct.botaoSave.click
   end
   
   Entao("valido se task foi criada {string}") do |string|
-    expect(@verCri.criacaoTask.text).to eql @name
-  end
-  
-  Quando("insiro os valores Teste{int} Deferred <Priority> para criar task") do |int|
-    pending # Write code here that turns the phrase above into concrete actions
-  end
-  
-  Quando("insiro os valores Teste{int} In Progress <Priority> para criar task") do |int|
-    pending # Write code here that turns the phrase above into concrete actions
+    expect(string).to eql @name
   end
   
   Quando("seleciono a task que quero Editar") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @taskEd = "TesteEditado"
+    @et.task.click
+    @et.action.click
+    @et.edit.click
+    @et.editaCadastro(@taskEd)
+    @et.botaoSave.click
   end
   
   Então("altero os dados e salvo a edição") do
-    pending # Write code here that turns the phrase above into concrete actions
+    expect(@et.edtSubject.text).to eql @taskEd
   end
   
   Quando("seleciono a task que quero Excluir") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @dt.task.click
+    @dt.action.click
+    @dt.delete.click
   end
   
   Então("realizo a exclusão") do
-    pending # Write code here that turns the phrase above into concrete actions
+    dialog = page.driver.browser.switch_to.alert
+    dialog.accept
+    assert_no_text(@taskEd)
   end
