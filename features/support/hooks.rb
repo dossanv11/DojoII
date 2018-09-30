@@ -1,3 +1,5 @@
 After do |scenario|
-    save_screenshot('\screenshots\screenshot.png'
+    screenshot = "#{scenario.name}"
+    @browser.driver.save_screenshot screenshot
+    embed("#{screenshot}_image_png.png")
 end
