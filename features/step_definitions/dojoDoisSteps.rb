@@ -34,7 +34,7 @@ Dado("que estou logado no site SuiteCRM") do
   end
   
   Então("altero os dados e salvo a edição") do
-    expect(@et.edtSubject.text).to eql @taskEd
+    assert_text(@taskEd)
   end
   
   Quando("seleciono a task que quero Excluir") do

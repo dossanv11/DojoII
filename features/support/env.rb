@@ -4,8 +4,6 @@ require 'selenium-webdriver'
 require 'capybara'
 require 'capybara/cucumber'
 require 'site_prism'
-require 'capybara-screenshot/cucumber'
-require 'capybara-screenshot/rspec'
 
 
 Capybara.register_driver :selenium do |app|

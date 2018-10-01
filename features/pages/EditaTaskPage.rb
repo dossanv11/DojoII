@@ -7,6 +7,6 @@ class EditTask < SitePrism::Page
     
 
     def editaCadastro(edtCampoSubject)
-        edtCampoSubject.send(edtCampoSubject)
+        edtSubject.set(edtCampoSubject)
     end
 end
