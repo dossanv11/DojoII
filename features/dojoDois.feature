@@ -17,12 +17,12 @@ Exemplos:
 |       "Teste2"         |      "Deferred"        |      "High"       |
 |       "Teste3"         |     "In Progress"      |     "Medium"      |
 
-@editaTask @teste
+@editaTask
 Cenario: Editar task
 Quando seleciono a task que quero Editar
 Então altero os dados e salvo a edição
 
-@excluiTask @teste
+@excluiTask
 Cenario: Excluir task
 Quando seleciono a task que quero Excluir
 Então realizo a exclusão
