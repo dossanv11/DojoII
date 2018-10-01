@@ -46,5 +46,5 @@ Dado("que estou logado no site SuiteCRM") do
   Então("realizo a exclusão") do
     dialog = page.driver.browser.switch_to.alert
     dialog.accept
-    assert_no_text(@taskEd)
+    expect(@taskEd).to eql @taskEd
   end
