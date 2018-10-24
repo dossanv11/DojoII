@@ -1,15 +1,15 @@
 Dado("que estou logado no site SuiteCRM") do
-    @ct = CreateTasks.new
-    @login = Login.new
-    @et = EditTask.new
-    @dt = DeleteTask.new
+  @ct = CreateTasks.new
+  @login = Login.new
+  @et = EditTask.new
+  @dt = DeleteTask.new
 
-	  @login.load
-    @login.realizaLogin("will","will")
-    @login.botaoLogin.click
-    click_link('grouptab_3')
-    click_link('moduleTab_6_Tasks')
-  end
+  @login.load
+  @login.realizaLogin("will","will")
+  @login.botaoLogin.click
+  click_link('grouptab_3')
+  click_link('moduleTab_6_Tasks')
+end
   
   Quando("insiro os valores {string} {string} {string} para criar task") do |subject, status, priority|
     sleep 5

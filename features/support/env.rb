@@ -4,6 +4,7 @@ require 'selenium-webdriver'
 require 'capybara'
 require 'capybara/cucumber'
 require 'site_prism'
+require 'httparty'
 
 
 Capybara.register_driver :selenium do |app|
